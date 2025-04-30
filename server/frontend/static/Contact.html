@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="/static/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/style.css">
+  <script>
+    const logout = async (e) => { /* Optional logout logic */ };
+
+    let checkSession = () => {
+      let curr_user = sessionStorage.getItem("username");
+      if (curr_user && curr_user !== "") {
+        document.getElementById("loginlogout").innerHTML =
+          '<span class="homepage_links">' + curr_user + '</span>' +
+          '<a class="homepage_links" onclick="logout()" href="/">Logout</a>';
+      } else {
+        document.getElementById("loginlogout").innerHTML =
+          '<a class="homepage_links" href="/login">Login</a>' +
+          '<a class="homepage_links" href="/register">Register</a>';
+      }
+    };
+  </script>
+</head>
+<body onload="checkSession()">
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color:darkturquoise; height: 1in;">
+    <div class="container-fluid">
+      <h2 style="padding-right: 5%;">Dealerships</h2>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="/about">About Us</a></li>
+          <li class="nav-item"><a class="nav-link active" href="/contact">Contact Us</a></li>
+        </ul>
+        <span class="navbar-text">
+          <div class="loginlink" id="loginlogout"></div>
+        </span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- CONTACT INFO CARD -->
+  <div class="card" style="width: 60%; margin: 50px auto; padding: 30px;">
+    <h3 class="text-center">Get in Touch</h3>
+    <p class="text-center">We're here to help. Reach out to us using any of the methods below.</p>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><strong>Email:</strong> support@bestcars.com</li>
+      <li class="list-group-item"><strong>Phone:</strong> +1 (800) 123-4567</li>
+      <li class="list-group-item"><strong>Address:</strong> 123 Car Lane, Detroit, MI 48201</li>
+      <li class="list-group-item"><strong>Business Hours:</strong> Mon–Fri: 9:00 AM – 6:00 PM</li>
+    </ul>
+    <div class="text-center mt-4">
+      <img src="/static/contactus.png" alt="Contact Us" style="max-width: 100%; height: auto;">
+    </div>
+  </div>
+</body>
+</html>
